@@ -1,8 +1,8 @@
 from fastapi import HTTPException
-from app import schemas as schemas
+from app import schemas as OperationRequest
 from app.repository import wallets as wallets_repository
 
-def add_income(operation: schemas.OperationRequest):
+def add_income(operation: OperationRequest):
     if wallets_repository.is_wallet_exist(operation.wallet_name):
         raise HTTPException(
                 status_code=404,
@@ -19,7 +19,7 @@ def add_income(operation: schemas.OperationRequest):
         "new_balance": new_balance
     }
     
-def add_expence(operation: schemas.OperationRequest):
+def add_expence(operation: OperationRequest):
     if wallets_repository.is_wallet_exist(operation.wallet_name):
         raise HTTPException(
             status_code=404,

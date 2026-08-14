@@ -1,6 +1,7 @@
 from fastapi import  HTTPException
 from app.repository import wallets as wallets_service
 from app.schemas import CreateWalletRequest
+
 def get_balance(wallet_name: str | None = None):
     if not wallet_name:
         wallets=wallets_service.get_all_wallets()
